@@ -10,10 +10,12 @@ export default function Home() {
         <Hero />
         <Products />
         <WhyChooseUs />
-        <section id="contact" className="py-16 md:py-20">
+        <section id="contact" className="bg-[#150e09] py-16 md:py-20">
           <Container className="max-w-2xl">
-            <h2 className="text-2xl font-bold text-stone-900 md:text-3xl">Get in touch</h2>
-            <p className="mt-2 text-stone-600">
+            <h2 className="font-display text-2xl font-semibold text-[#f3e6ce] md:text-3xl">
+              Get in touch
+            </h2>
+            <p className="font-body mt-2 text-[#b9a383]">
               Tell us what you&apos;re looking for and we&apos;ll get back within a working day.
             </p>
             <EnquiryForm />

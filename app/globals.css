@@ -1,1 +1,118 @@
 @import "tailwindcss";
+
+.font-display {
+  font-family: var(--font-cinzel), serif;
+}
+
+.font-body {
+  font-family: var(--font-lora), serif;
+}
+
+.font-wordmark {
+  font-family: var(--font-marcellus), serif;
+}
+
+/* A subtle brushed-metal grain, layered with a soft bronze sheen.
+   Used on dark panels to keep them from reading as flat color. */
+.patina-field {
+  position: relative;
+  background-color: #150e09;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 20% -10%, rgba(227, 183, 101, 0.26), transparent 58%),
+    radial-gradient(ellipse 100% 60% at 110% 110%, rgba(184, 116, 58, 0.3), transparent 62%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/></svg>");
+  background-blend-mode: normal, normal, overlay;
+}
+
+/* Cast-metal wordmark: each line is two stacked copies of the same text —
+   an "extrude" layer (solid dark steps, building a 3D struck edge) behind
+   a "metal-fill" layer whose fill is an actual photo of hammered copper,
+   clipped to the letterforms, so the material reads as real, not a gradient. */
+.wordmark-wrap {
+  position: relative;
+  display: inline-block;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.55));
+}
+
+.wordmark-line {
+  position: relative;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.05;
+  display: flex;
+  align-items: center;
+  gap: 0.18em;
+}
+
+.wordmark-textstack {
+  position: relative;
+  display: inline-block;
+}
+
+.wordmark-extrude {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  text-shadow:
+    1px 1px 0 #3a2008,
+    2px 2px 0 #341c07,
+    3px 3px 0 #2e1806,
+    4px 4px 0 #281405,
+    5px 5px 0 #221104,
+    6px 6px 0 #1c0e03,
+    7px 7px 8px rgba(0, 0, 0, 0.6);
+}
+
+.wordmark-fill {
+  position: relative;
+  background-image: url("/brand/copper-texture.jpg");
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.wordmark-fill.fill-primary {
+  background-size: 260% 560%;
+  background-position: 10% 20%;
+}
+
+.wordmark-fill.fill-secondary {
+  background-size: 220% 900%;
+  background-position: 50% 55%;
+}
+
+.wordmark-fill.fill-tertiary {
+  background-size: 220% 900%;
+  background-position: 70% 75%;
+}
+
+.wordmark-icon {
+  flex-shrink: 0;
+  filter: drop-shadow(1px 2px 1px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes slow-sheen {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.ambient-sheen {
+  background: linear-gradient(
+    110deg,
+    rgba(227, 183, 101, 0) 25%,
+    rgba(227, 183, 101, 0.18) 50%,
+    rgba(227, 183, 101, 0) 75%
+  );
+  background-size: 220% 220%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ambient-sheen {
+    animation: slow-sheen 14s ease-in-out infinite;
+  }
+}
