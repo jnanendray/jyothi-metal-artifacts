@@ -45,10 +45,14 @@ export default function EnquiryForm() {
     }
   }
 
+  const labelClass = "font-body block text-sm font-medium text-[#c9a876]";
+  const inputClass =
+    "font-body mt-1 w-full rounded-sm border border-[#4a3620] bg-[#2b1a0f] px-3 py-2 text-[#f3e6ce] placeholder:text-[#8a7560] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e3b765]";
+
   return (
     <form onSubmit={handleSubmit} className="mt-8 grid gap-4 sm:grid-cols-2">
       <div className="sm:col-span-1">
-        <label htmlFor="name" className="block text-sm font-medium text-stone-700">
+        <label htmlFor="name" className={labelClass}>
           Name
         </label>
         <input
@@ -58,11 +62,11 @@ export default function EnquiryForm() {
           required
           minLength={2}
           maxLength={80}
-          className="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-800"
+          className={inputClass}
         />
       </div>
       <div className="sm:col-span-1">
-        <label htmlFor="phone" className="block text-sm font-medium text-stone-700">
+        <label htmlFor="phone" className={labelClass}>
           Phone number
         </label>
         <input
@@ -72,11 +76,11 @@ export default function EnquiryForm() {
           required
           pattern="[6-9][0-9]{9}"
           title="10-digit Indian mobile number"
-          className="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-800"
+          className={inputClass}
         />
       </div>
       <div className="sm:col-span-2">
-        <label htmlFor="message" className="block text-sm font-medium text-stone-700">
+        <label htmlFor="message" className={labelClass}>
           What are you looking for?
         </label>
         <textarea
@@ -86,20 +90,20 @@ export default function EnquiryForm() {
           minLength={3}
           maxLength={500}
           rows={4}
-          className="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-800"
+          className={inputClass}
         />
       </div>
       <div className="sm:col-span-2">
         <button
           type="submit"
           disabled={status === "sending"}
-          className="rounded-full bg-amber-800 px-6 py-3 font-semibold text-white hover:bg-amber-900 disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-800"
+          className="font-body rounded-sm bg-[#b8743a] px-6 py-3 font-semibold text-[#150e09] hover:bg-[#c9854a] disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e3b765]"
         >
           {status === "sending" ? "Sending…" : "Send enquiry"}
         </button>
-        <p aria-live="polite" className="mt-3 text-sm text-stone-600">
-          {status === "success" && <span className="text-green-700">{message}</span>}
-          {status === "error" && <span className="text-red-700">{message}</span>}
+        <p aria-live="polite" className="font-body mt-3 text-sm text-[#b9a383]">
+          {status === "success" && <span className="text-green-500">{message}</span>}
+          {status === "error" && <span className="text-red-400">{message}</span>}
         </p>
       </div>
     </form>
