@@ -244,7 +244,7 @@ export function Products() {
         <p className="font-body mt-2 max-w-2xl text-[#b9a383]">
           A few favourites from our range of copper, brass and bronze pieces.
         </p>
-        <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => {
             const href = whatsAppHref(product.name);
             return (
